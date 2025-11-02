@@ -1,33 +1,895 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+  <title>NN Form 206 Interactive Evaluation</title>
   <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="">
-
+  <meta name="description" content="Interactive reproduction of the Nigerian Navy NN Form 206 performance evaluation report.">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icon.png">
-
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#fafafa">
 </head>
 
 <body>
+  <main class="app-shell">
+    <aside class="app-sidebar">
+      <header class="sidebar-header">
+        <p class="sidebar-secret">FOR OFFICIAL USE</p>
+        <p class="sidebar-form-number">NN FORM 206 (R) 2018</p>
+        <h1 class="sidebar-title">Performance Evaluation Report</h1>
+        <h2 class="sidebar-subtitle">Officers</h2>
+      </header>
+      <nav class="sidebar-nav" aria-label="Form sections">
+        <ol>
+          <li><button type="button" class="nav-link active" data-nav="0">Part I · Identity</button></li>
+          <li><button type="button" class="nav-link" data-nav="1">Part I · Appointment</button></li>
+          <li><button type="button" class="nav-link" data-nav="2">Part I · Courses &amp; Qualifications</button></li>
+          <li><button type="button" class="nav-link" data-nav="3">Part II · Personal Assessment</button></li>
+          <li><button type="button" class="nav-link" data-nav="4">Part III · Reporting Officer Remarks</button></li>
+          <li><button type="button" class="nav-link" data-nav="5">Part IV · Command Endorsements</button></li>
+          <li><button type="button" class="nav-link" data-nav="6">Part V · NHQ Review</button></li>
+        </ol>
+      </nav>
+      <section class="sidebar-meta">
+        <div class="meta-line">
+          <span class="meta-label">Status</span>
+          <span class="meta-value" data-progress="status">Draft</span>
+        </div>
+        <div class="meta-line">
+          <span class="meta-label">Completion</span>
+          <span class="meta-value" data-progress="percent">0%</span>
+        </div>
+        <button type="button" class="primary" data-action="download">Download JSON Snapshot</button>
+      </section>
+    </aside>
 
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
-  <script src="js/app.js"></script>
+    <section class="app-stage">
+      <header class="stage-toolbar">
+        <span class="page-indicator" data-progress="page">Page 1 of 7</span>
+        <div class="toolbar-actions">
+          <button type="button" class="secondary" data-action="prev" disabled>Previous</button>
+          <button type="button" class="primary" data-action="next">Next</button>
+        </div>
+      </header>
 
+      <article class="page-flow">
+        <form class="form-page active" data-page="0" novalidate>
+          <div class="page-surface">
+            <header class="page-header">
+              <div class="header-left">FOR OFFICIAL USE</div>
+              <div class="header-right">NN FORM 206 (R) REVISED 2018</div>
+            </header>
+            <section class="page-banner">
+              <img src="icon.png" alt="Nigerian Navy crest" class="banner-logo">
+              <div class="banner-text">
+                <p class="banner-agency">Nigerian Navy</p>
+                <h2 class="banner-title">Performance Evaluation Report – Officers</h2>
+              </div>
+            </section>
+            <section class="page-grid">
+              <div class="grid-row three">
+                <div class="field">
+                  <label for="rank">1. Service Rank</label>
+                  <select id="rank" name="rank" required>
+                    <option value="">Select rank</option>
+                    <option>Midshipman</option>
+                    <option>Sub-Lieutenant</option>
+                    <option>Lieutenant</option>
+                    <option>Lieutenant Commander</option>
+                    <option>Commander</option>
+                    <option>Captain</option>
+                    <option>Commodore</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="surname">2. Surname</label>
+                  <input type="text" id="surname" name="surname" required>
+                </div>
+                <div class="field">
+                  <label for="otherNames">3. Other Names</label>
+                  <input type="text" id="otherNames" name="otherNames">
+                </div>
+              </div>
+
+              <div class="grid-row three">
+                <div class="field">
+                  <label for="serviceNumber">4. Service Number</label>
+                  <input type="text" id="serviceNumber" name="serviceNumber">
+                </div>
+                <div class="field field--inline">
+                  <span class="field-label">5. Sex</span>
+                  <label class="choice"><input type="radio" name="sex" value="male"> Male</label>
+                  <label class="choice"><input type="radio" name="sex" value="female"> Female</label>
+                </div>
+                <div class="field">
+                  <label for="dob">6. Date of Birth</label>
+                  <input type="date" id="dob" name="dob">
+                </div>
+              </div>
+
+              <div class="grid-row three">
+                <div class="field">
+                  <label for="dateEnlistment">7. Date of Enlistment</label>
+                  <input type="date" id="dateEnlistment" name="dateEnlistment">
+                </div>
+                <div class="field">
+                  <label for="dateCommission">8. Date of Commission</label>
+                  <input type="date" id="dateCommission" name="dateCommission">
+                </div>
+                <div class="field">
+                  <label for="commissionType">9. Type of Commission</label>
+                  <select id="commissionType" name="commissionType">
+                    <option value="">Select commission</option>
+                    <option>Regular</option>
+                    <option>Direct Regular</option>
+                    <option>Direct Short Service</option>
+                    <option>Short Service</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid-row three">
+                <div class="field">
+                  <label for="promotionDate">10. Date Promoted to Current Rank</label>
+                  <input type="date" id="promotionDate" name="promotionDate">
+                </div>
+                <div class="field">
+                  <label for="seniorityDate">11. Seniority on Present Rank</label>
+                  <input type="date" id="seniorityDate" name="seniorityDate">
+                </div>
+                <div class="field">
+                  <label for="retirementDate">12. ROD</label>
+                  <input type="date" id="retirementDate" name="retirementDate">
+                </div>
+              </div>
+
+              <div class="grid-row three">
+                <div class="field">
+                  <label for="tel">13. Telephone</label>
+                  <input type="tel" id="tel" name="telephone" placeholder="08000000000">
+                </div>
+                <div class="field">
+                  <label for="email">14. Email</label>
+                  <input type="email" id="email" name="email">
+                </div>
+                <div class="field">
+                  <label for="maritalStatus">15. Marital Status</label>
+                  <select id="maritalStatus" name="maritalStatus">
+                    <option value="">Select status</option>
+                    <option>Single</option>
+                    <option>Married</option>
+                    <option>Separated</option>
+                    <option>Divorced</option>
+                    <option>Widowed</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid-row three">
+                <div class="field">
+                  <label for="command">16. Command</label>
+                  <input type="text" id="command" name="command">
+                </div>
+                <div class="field">
+                  <label for="unit">17. Unit</label>
+                  <input type="text" id="unit" name="unit">
+                </div>
+                <div class="field">
+                  <label for="appointment">18. Appointment</label>
+                  <input type="text" id="appointment" name="appointment">
+                </div>
+              </div>
+
+              <div class="grid-row three">
+                <div class="field">
+                  <label for="reportingPeriodFrom">19. Period of Report (From)</label>
+                  <input type="date" id="reportingPeriodFrom" name="reportingPeriodFrom">
+                </div>
+                <div class="field">
+                  <label for="reportingPeriodTo">20. Period of Report (To)</label>
+                  <input type="date" id="reportingPeriodTo" name="reportingPeriodTo">
+                </div>
+                <div class="field field--inline">
+                  <span class="field-label">21. Environment</span>
+                  <label class="choice"><input type="checkbox" name="environmentAshore"> Ashore</label>
+                  <label class="choice"><input type="checkbox" name="environmentAfloat"> Afloat</label>
+                </div>
+              </div>
+            </section>
+          </div>
+        </form>
+
+        <form class="form-page" data-page="1" novalidate>
+          <div class="page-surface">
+            <header class="page-header">
+              <div class="header-left">PART I – OFFICER'S PARTICULARS</div>
+              <div class="header-right">NN FORM 206 (R)</div>
+            </header>
+
+            <section class="section-block">
+              <h3 class="section-title">A. Appointment and Reporting</h3>
+              <div class="grid-row two">
+                <div class="field">
+                  <label for="appointmentType">1. Appointment</label>
+                  <select id="appointmentType" name="appointmentType">
+                    <option value="">Select</option>
+                    <option>On Posting</option>
+                    <option>On Acting</option>
+                    <option>On Reporting</option>
+                    <option>Special Duty</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="reportingReason">2. Reason for Report</label>
+                  <select id="reportingReason" name="reportingReason">
+                    <option value="">Select</option>
+                    <option>Yearly</option>
+                    <option>Mid-year</option>
+                    <option>Special Report</option>
+                    <option>Promotion</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid-row three">
+                <div class="field">
+                  <label for="dutyBranch">3. Branch / Division</label>
+                  <input type="text" id="dutyBranch" name="dutyBranch">
+                </div>
+                <div class="field">
+                  <label for="primaryDuty">4. Primary Duty</label>
+                  <input type="text" id="primaryDuty" name="primaryDuty">
+                </div>
+                <div class="field">
+                  <label for="secondaryDuty">5. Secondary Duty</label>
+                  <input type="text" id="secondaryDuty" name="secondaryDuty">
+                </div>
+              </div>
+            </section>
+
+            <section class="section-block">
+              <h3 class="section-title">B. Personal &amp; Family Details</h3>
+              <div class="grid-row three">
+                <div class="field">
+                  <label for="lga">6. State / LGA</label>
+                  <input type="text" id="lga" name="lga">
+                </div>
+                <div class="field">
+                  <label for="religion">7. Religion</label>
+                  <select id="religion" name="religion">
+                    <option value="">Select</option>
+                    <option>Christianity</option>
+                    <option>Islam</option>
+                    <option>Traditional</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="tribe">8. Ethnic Group</label>
+                  <input type="text" id="tribe" name="tribe">
+                </div>
+              </div>
+
+              <div class="grid-row three">
+                <div class="field">
+                  <label for="spouseName">9. Spouse Name</label>
+                  <input type="text" id="spouseName" name="spouseName">
+                </div>
+                <div class="field">
+                  <label for="marriageDate">10. Date of Marriage</label>
+                  <input type="date" id="marriageDate" name="marriageDate">
+                </div>
+                <div class="field">
+                  <label for="childrenCount">11. Number of Children</label>
+                  <input type="number" id="childrenCount" name="childrenCount" min="0" step="1">
+                </div>
+              </div>
+
+              <div class="grid-row two">
+                <div class="field">
+                  <label for="homeAddress">12. Home Address</label>
+                  <textarea id="homeAddress" name="homeAddress" rows="3"></textarea>
+                </div>
+                <div class="field">
+                  <label for="nextOfKin">13. Next of Kin</label>
+                  <textarea id="nextOfKin" name="nextOfKin" rows="3"></textarea>
+                </div>
+              </div>
+            </section>
+
+            <section class="section-block">
+              <h3 class="section-title">C. Medical &amp; Physical Data</h3>
+              <div class="grid-row four">
+                <div class="field">
+                  <label for="genotype">14. Genotype</label>
+                  <select id="genotype" name="genotype">
+                    <option value="">Select</option>
+                    <option>AA</option>
+                    <option>AS</option>
+                    <option>SS</option>
+                    <option>AC</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="bloodGroup">15. Blood Group</label>
+                  <select id="bloodGroup" name="bloodGroup">
+                    <option value="">Select</option>
+                    <option>O+</option>
+                    <option>O-</option>
+                    <option>A+</option>
+                    <option>A-</option>
+                    <option>B+</option>
+                    <option>B-</option>
+                    <option>AB+</option>
+                    <option>AB-</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="height">16. Height (m)</label>
+                  <input type="number" id="height" name="height" min="1" max="2.5" step="0.01">
+                </div>
+                <div class="field">
+                  <label for="weight">17. Weight (kg)</label>
+                  <input type="number" id="weight" name="weight" min="40" max="200" step="0.1">
+                </div>
+              </div>
+
+              <div class="grid-row three">
+                <div class="field">
+                  <label for="medicalCategory">18. Medical Category</label>
+                  <input type="text" id="medicalCategory" name="medicalCategory">
+                </div>
+                <div class="field">
+                  <label for="lastMedical">19. Date of Last Medical</label>
+                  <input type="date" id="lastMedical" name="lastMedical">
+                </div>
+                <div class="field">
+                  <label for="medicalRemarks">20. Medical Remarks</label>
+                  <input type="text" id="medicalRemarks" name="medicalRemarks">
+                </div>
+              </div>
+            </section>
+          </div>
+        </form>
+
+        <form class="form-page" data-page="2" novalidate>
+          <div class="page-surface">
+            <header class="page-header">
+              <div class="header-left">PART I – COURSES AND QUALIFICATIONS</div>
+              <div class="header-right">NN FORM 206 (R)</div>
+            </header>
+
+            <section class="section-block">
+              <h3 class="section-title">A. Professional Courses (latest first)</h3>
+              <table class="table-list" data-rows="5">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Course Title</th>
+                    <th scope="col">Institution</th>
+                    <th scope="col">Class / Remarks</th>
+                    <th scope="col">Year</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td><input type="text" name="course1Title"></td>
+                    <td><input type="text" name="course1Institution"></td>
+                    <td><input type="text" name="course1Remark"></td>
+                    <td><input type="number" name="course1Year" min="1950" max="2100" step="1"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td><input type="text" name="course2Title"></td>
+                    <td><input type="text" name="course2Institution"></td>
+                    <td><input type="text" name="course2Remark"></td>
+                    <td><input type="number" name="course2Year" min="1950" max="2100" step="1"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td><input type="text" name="course3Title"></td>
+                    <td><input type="text" name="course3Institution"></td>
+                    <td><input type="text" name="course3Remark"></td>
+                    <td><input type="number" name="course3Year" min="1950" max="2100" step="1"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td><input type="text" name="course4Title"></td>
+                    <td><input type="text" name="course4Institution"></td>
+                    <td><input type="text" name="course4Remark"></td>
+                    <td><input type="number" name="course4Year" min="1950" max="2100" step="1"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td><input type="text" name="course5Title"></td>
+                    <td><input type="text" name="course5Institution"></td>
+                    <td><input type="text" name="course5Remark"></td>
+                    <td><input type="number" name="course5Year" min="1950" max="2100" step="1"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section class="section-block">
+              <h3 class="section-title">B. Academic Qualifications</h3>
+              <div class="grid-row two">
+                <div class="field">
+                  <label for="firstDegree">Highest Degree</label>
+                  <input type="text" id="firstDegree" name="firstDegree">
+                </div>
+                <div class="field">
+                  <label for="secondDegree">Other Qualifications</label>
+                  <input type="text" id="secondDegree" name="secondDegree">
+                </div>
+              </div>
+            </section>
+
+            <section class="section-block">
+              <h3 class="section-title">C. Language Proficiency</h3>
+              <table class="table-list" data-rows="3">
+                <thead>
+                  <tr>
+                    <th scope="col">Language</th>
+                    <th scope="col">Speaking</th>
+                    <th scope="col">Reading</th>
+                    <th scope="col">Writing</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><input type="text" name="language1"></td>
+                    <td><select name="language1Speak">
+                        <option value="">Select</option>
+                        <option>Fluent</option>
+                        <option>Good</option>
+                        <option>Fair</option>
+                        <option>Poor</option>
+                      </select></td>
+                    <td><select name="language1Read">
+                        <option value="">Select</option>
+                        <option>Fluent</option>
+                        <option>Good</option>
+                        <option>Fair</option>
+                        <option>Poor</option>
+                      </select></td>
+                    <td><select name="language1Write">
+                        <option value="">Select</option>
+                        <option>Fluent</option>
+                        <option>Good</option>
+                        <option>Fair</option>
+                        <option>Poor</option>
+                      </select></td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" name="language2"></td>
+                    <td><select name="language2Speak">
+                        <option value="">Select</option>
+                        <option>Fluent</option>
+                        <option>Good</option>
+                        <option>Fair</option>
+                        <option>Poor</option>
+                      </select></td>
+                    <td><select name="language2Read">
+                        <option value="">Select</option>
+                        <option>Fluent</option>
+                        <option>Good</option>
+                        <option>Fair</option>
+                        <option>Poor</option>
+                      </select></td>
+                    <td><select name="language2Write">
+                        <option value="">Select</option>
+                        <option>Fluent</option>
+                        <option>Good</option>
+                        <option>Fair</option>
+                        <option>Poor</option>
+                      </select></td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" name="language3"></td>
+                    <td><select name="language3Speak">
+                        <option value="">Select</option>
+                        <option>Fluent</option>
+                        <option>Good</option>
+                        <option>Fair</option>
+                        <option>Poor</option>
+                      </select></td>
+                    <td><select name="language3Read">
+                        <option value="">Select</option>
+                        <option>Fluent</option>
+                        <option>Good</option>
+                        <option>Fair</option>
+                        <option>Poor</option>
+                      </select></td>
+                    <td><select name="language3Write">
+                        <option value="">Select</option>
+                        <option>Fluent</option>
+                        <option>Good</option>
+                        <option>Fair</option>
+                        <option>Poor</option>
+                      </select></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section class="section-block">
+              <h3 class="section-title">D. Membership of Professional Bodies</h3>
+              <textarea name="professionalBodies" rows="4"></textarea>
+            </section>
+          </div>
+        </form>
+
+        <form class="form-page" data-page="3" novalidate>
+          <div class="page-surface">
+            <header class="page-header">
+              <div class="header-left">PART II – PERSONAL ASSESSMENT</div>
+              <div class="header-right">NN FORM 206 (R)</div>
+            </header>
+
+            <section class="section-block">
+              <p class="instruction">Reporting officers should acquaint themselves with relevant sections of the instructions at the end of the PER booklet before completing this part.</p>
+              <table class="assessment-table">
+                <thead>
+                  <tr>
+                    <th rowspan="2" scope="col">Personal Qualities</th>
+                    <th colspan="10" scope="col">Rating (0 lowest – 9 highest)</th>
+                  </tr>
+                  <tr class="rating-scale">
+                    <th>0</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th>7</th>
+                    <th>8</th>
+                    <th>9</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1. Loyalty</th>
+                    <td colspan="10"><input type="range" min="0" max="9" value="0" name="ratingLoyalty"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2. Integrity</th>
+                    <td colspan="10"><input type="range" min="0" max="9" value="0" name="ratingIntegrity"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3. Discipline</th>
+                    <td colspan="10"><input type="range" min="0" max="9" value="0" name="ratingDiscipline"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4. Initiative</th>
+                    <td colspan="10"><input type="range" min="0" max="9" value="0" name="ratingInitiative"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5. Leadership</th>
+                    <td colspan="10"><input type="range" min="0" max="9" value="0" name="ratingLeadership"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6. Sense of Responsibility</th>
+                    <td colspan="10"><input type="range" min="0" max="9" value="0" name="ratingResponsibility"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">7. Judgment</th>
+                    <td colspan="10"><input type="range" min="0" max="9" value="0" name="ratingJudgement"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">8. Ability</th>
+                    <td colspan="10"><input type="range" min="0" max="9" value="0" name="ratingAbility"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">9. Zeal</th>
+                    <td colspan="10"><input type="range" min="0" max="9" value="0" name="ratingZeal"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">10. Conduct</th>
+                    <td colspan="10"><input type="range" min="0" max="9" value="0" name="ratingConduct"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section class="section-block">
+              <h3 class="section-title">Summary of Assessment</h3>
+              <div class="grid-row two">
+                <div class="field">
+                  <label for="overallGrade">Overall Grade</label>
+                  <select id="overallGrade" name="overallGrade">
+                    <option value="">Select</option>
+                    <option>Outstanding</option>
+                    <option>Above Average</option>
+                    <option>Average</option>
+                    <option>Below Average</option>
+                    <option>Poor</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="qualitiesSummary">Strengths / Weaknesses</label>
+                  <textarea id="qualitiesSummary" name="qualitiesSummary" rows="3"></textarea>
+                </div>
+              </div>
+            </section>
+          </div>
+        </form>
+
+        <form class="form-page" data-page="4" novalidate>
+          <div class="page-surface">
+            <header class="page-header">
+              <div class="header-left">PART III – REMARKS BY REPORTING OFFICER</div>
+              <div class="header-right">NN FORM 206 (R)</div>
+            </header>
+
+            <section class="section-block">
+              <h3 class="section-title">A. Personal Qualities</h3>
+              <textarea name="reportingPersonal" rows="4" placeholder="Comment on personal qualities such as integrity, attitude and loyalty."></textarea>
+            </section>
+
+            <section class="section-block">
+              <h3 class="section-title">B. Professional Ability</h3>
+              <textarea name="reportingProfessional" rows="4" placeholder="Assess knowledge, performance and contributions."></textarea>
+            </section>
+
+            <section class="section-block">
+              <h3 class="section-title">C. Leadership Traits</h3>
+              <textarea name="reportingLeadership" rows="4" placeholder="Comment on command, leadership qualities and potential for higher command."></textarea>
+            </section>
+
+            <section class="section-block">
+              <h3 class="section-title">D. Observations</h3>
+              <div class="grid-row three">
+                <div class="field">
+                  <label for="reportingPeriodYears">Period Officer Served (Years)</label>
+                  <input type="number" id="reportingPeriodYears" name="reportingPeriodYears" min="0" step="1">
+                </div>
+                <div class="field">
+                  <label for="reportingPeriodMonths">Months</label>
+                  <input type="number" id="reportingPeriodMonths" name="reportingPeriodMonths" min="0" max="11" step="1">
+                </div>
+                <div class="field field--inline">
+                  <span class="field-label">Tasks Completed</span>
+                  <label class="choice"><input type="checkbox" name="taskOperational"> Operational</label>
+                  <label class="choice"><input type="checkbox" name="taskTraining"> Training</label>
+                  <label class="choice"><input type="checkbox" name="taskAdministrative"> Administrative</label>
+                </div>
+              </div>
+            </section>
+
+            <section class="section-block">
+              <h3 class="section-title">E. Promotion Potential</h3>
+              <div class="grid-row two">
+                <div class="field">
+                  <label for="promotionRecommendation">Recommendation</label>
+                  <select id="promotionRecommendation" name="promotionRecommendation">
+                    <option value="">Select</option>
+                    <option>Fit for promotion</option>
+                    <option>Fit within 1 year</option>
+                    <option>Fit within 2 years</option>
+                    <option>Not yet fit</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="promotionRemarks">Remarks</label>
+                  <textarea id="promotionRemarks" name="promotionRemarks" rows="3"></textarea>
+                </div>
+              </div>
+            </section>
+
+            <section class="section-block">
+              <h3 class="section-title">F. Signature &amp; Authentication</h3>
+              <div class="grid-row three">
+                <div class="field">
+                  <label for="reportingOfficerName">Reporting Officer</label>
+                  <input type="text" id="reportingOfficerName" name="reportingOfficerName">
+                </div>
+                <div class="field">
+                  <label for="reportingOfficerRank">Rank / Appt</label>
+                  <input type="text" id="reportingOfficerRank" name="reportingOfficerRank">
+                </div>
+                <div class="field">
+                  <label for="reportingDate">Date</label>
+                  <input type="date" id="reportingDate" name="reportingDate">
+                </div>
+              </div>
+
+              <div class="signature-block" data-signature data-field="reportingSignature">
+                <header>Signature of Reporting Officer</header>
+                <canvas width="520" height="160"></canvas>
+                <div class="signature-actions">
+                  <button type="button" class="secondary" data-action="clear-signature">Clear</button>
+                  <span class="signature-status" data-signature-status>Awaiting signature</span>
+                </div>
+              </div>
+            </section>
+          </div>
+        </form>
+
+        <form class="form-page" data-page="5" novalidate>
+          <div class="page-surface">
+            <header class="page-header">
+              <div class="header-left">PART IV – COMMAND ENDORSEMENTS</div>
+              <div class="header-right">NN FORM 206 (R)</div>
+            </header>
+
+            <section class="section-block">
+              <h3 class="section-title">A. Endorsement on Officer Reported Upon</h3>
+              <div class="field field--stack">
+                <label class="choice"><input type="radio" name="commandEndorsement" value="approve"> I hereby concur with the reporting officer's assessment.</label>
+                <label class="choice"><input type="radio" name="commandEndorsement" value="disagree"> I wish to formally submit the following points of disagreement.</label>
+              </div>
+              <textarea name="endorsementRemarks" rows="4" placeholder="Detail any disagreement or additional remarks."></textarea>
+            </section>
+
+            <section class="section-block">
+              <h3 class="section-title">B. Specialty Branch Chief's Remarks</h3>
+              <textarea name="specialtyRemarks" rows="4"></textarea>
+              <div class="grid-row three">
+                <div class="field">
+                  <label for="specialtyName">Name</label>
+                  <input type="text" id="specialtyName" name="specialtyName">
+                </div>
+                <div class="field">
+                  <label for="specialtyRank">Rank / Appt</label>
+                  <input type="text" id="specialtyRank" name="specialtyRank">
+                </div>
+                <div class="field">
+                  <label for="specialtyDate">Date</label>
+                  <input type="date" id="specialtyDate" name="specialtyDate">
+                </div>
+              </div>
+            </section>
+
+            <section class="section-block">
+              <h3 class="section-title">C. Commander's Remarks</h3>
+              <textarea name="commanderRemarks" rows="4"></textarea>
+              <div class="grid-row three">
+                <div class="field">
+                  <label for="commanderName">Commander</label>
+                  <input type="text" id="commanderName" name="commanderName">
+                </div>
+                <div class="field">
+                  <label for="commanderRank">Rank / Appt</label>
+                  <input type="text" id="commanderRank" name="commanderRank">
+                </div>
+                <div class="field">
+                  <label for="commanderDate">Date</label>
+                  <input type="date" id="commanderDate" name="commanderDate">
+                </div>
+              </div>
+            </section>
+
+            <section class="section-block">
+              <h3 class="section-title">D. Officer's Declaration</h3>
+              <div class="field field--stack">
+                <label class="choice"><input type="checkbox" name="officerAcknowledged"> I acknowledge that I have read and discussed this report with the reporting officer.</label>
+              </div>
+              <div class="grid-row three">
+                <div class="field">
+                  <label for="officerName">Officer's Name</label>
+                  <input type="text" id="officerName" name="officerName">
+                </div>
+                <div class="field">
+                  <label for="officerDate">Date</label>
+                  <input type="date" id="officerDate" name="officerDate">
+                </div>
+                <div class="field">
+                  <label>Signature of Officer</label>
+                  <div class="signature-block" data-signature data-field="officerSignature">
+                    <canvas width="320" height="140"></canvas>
+                    <div class="signature-actions">
+                      <button type="button" class="secondary" data-action="clear-signature">Clear</button>
+                      <span class="signature-status" data-signature-status>Awaiting signature</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+          </div>
+        </form>
+
+        <form class="form-page" data-page="6" novalidate>
+          <div class="page-surface">
+            <header class="page-header">
+              <div class="header-left">PART V – NAVAL HEADQUARTERS REVIEW</div>
+              <div class="header-right">NN FORM 206 (R)</div>
+            </header>
+
+            <section class="section-block">
+              <h3 class="section-title">A. Naval Headquarters Decision</h3>
+              <div class="grid-row three">
+                <div class="field">
+                  <label for="nhqBoard">Board Convened By</label>
+                  <input type="text" id="nhqBoard" name="nhqBoard" placeholder="Directorate / Board name">
+                </div>
+                <div class="field">
+                  <label for="nhqConveningDate">Date Convened</label>
+                  <input type="date" id="nhqConveningDate" name="nhqConveningDate">
+                </div>
+                <div class="field">
+                  <label for="nhqOutcome">Recommendation</label>
+                  <select id="nhqOutcome" name="nhqOutcome">
+                    <option value="">Select outcome</option>
+                    <option>Promote</option>
+                    <option>Defer</option>
+                    <option>Further Review</option>
+                    <option>Not Recommended</option>
+                  </select>
+                </div>
+              </div>
+              <textarea name="nhqRemarks" rows="4" placeholder="Record the conclusion reached by Naval Headquarters."></textarea>
+            </section>
+
+            <section class="section-block">
+              <h3 class="section-title">B. Head of Administration Remarks</h3>
+              <textarea name="nhqAdminRemarks" rows="4"></textarea>
+              <div class="grid-row three">
+                <div class="field">
+                  <label for="nhqAdminName">Name</label>
+                  <input type="text" id="nhqAdminName" name="nhqAdminName">
+                </div>
+                <div class="field">
+                  <label for="nhqAdminRank">Rank / Appt</label>
+                  <input type="text" id="nhqAdminRank" name="nhqAdminRank">
+                </div>
+                <div class="field">
+                  <label for="nhqAdminDate">Date</label>
+                  <input type="date" id="nhqAdminDate" name="nhqAdminDate">
+                </div>
+              </div>
+            </section>
+
+            <section class="section-block section-block--summary">
+              <h3 class="section-title">C. Evaluation Summary</h3>
+              <div class="summary-grid" data-summary></div>
+              <div class="chart-card">
+                <header>Core Value Ratings</header>
+                <canvas id="ratingsChart" width="540" height="320" role="img" aria-label="Radar chart of the core values ratings"></canvas>
+                <p class="chart-empty" data-chart-empty>Enter the Part II numerical ratings to populate the comparative radar chart.</p>
+                <p class="chart-caption">Scores are normalised to the NN Form 206 nine-point scale.</p>
+              </div>
+            </section>
+
+            <section class="section-block">
+              <h3 class="section-title">D. Final Certification</h3>
+              <div class="grid-row three">
+                <div class="field">
+                  <label for="nhqApproverName">Approving Officer</label>
+                  <input type="text" id="nhqApproverName" name="nhqApproverName">
+                </div>
+                <div class="field">
+                  <label for="nhqApproverRank">Rank / Appt</label>
+                  <input type="text" id="nhqApproverRank" name="nhqApproverRank">
+                </div>
+                <div class="field">
+                  <label for="nhqApproverDate">Date</label>
+                  <input type="date" id="nhqApproverDate" name="nhqApproverDate">
+                </div>
+              </div>
+              <div class="signature-block" data-signature data-field="nhqSignature">
+                <header>Naval Headquarters Signature</header>
+                <canvas width="560" height="160"></canvas>
+                <div class="signature-actions">
+                  <button type="button" class="secondary" data-action="clear-signature">Clear</button>
+                  <span class="signature-status" data-signature-status>Awaiting signature</span>
+                </div>
+              </div>
+            </section>
+          </div>
+        </form>
+      </article>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" integrity="sha384-p4vFeRey8eTBOUFHPPTnpfGbnn6JXqu4VIRe0x4mJMu38xpv8uKXu95syEHCqB6f" crossorigin="anonymous"></script>
+  <script src="js/app.js" type="module"></script>
 </body>
 
 </html>
