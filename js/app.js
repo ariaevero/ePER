@@ -217,6 +217,12 @@ function initForm() {
   const signaturePads = [];
   let ratingChart = null;
 
+  forms.forEach((form) => {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+    });
+  });
+
   const ratingFields = [
     'ratingLoyalty',
     'ratingIntegrity',
@@ -374,16 +380,27 @@ function initForm() {
       });
     }
 
-    summaryContainer.innerHTML = parts
-      .map(
-        (section) => `
-        <div class="summary-card">
-          <h4>${section.title}</h4>
-          <p>${section.body.replace(/\n/g, '<br>')}</p>
-        </div>
-      `
-      )
-      .join('');
+    summaryContainer.replaceChildren(
+      ...parts.map((section) => {
+        const card = document.createElement('div');
+        card.className = 'summary-card';
+
+        const heading = document.createElement('h4');
+        heading.textContent = section.title;
+        card.appendChild(heading);
+
+        const paragraph = document.createElement('p');
+        section.body.split('\n').forEach((line, index, array) => {
+          paragraph.appendChild(document.createTextNode(line));
+          if (index < array.length - 1) {
+            paragraph.appendChild(document.createElement('br'));
+          }
+        });
+        card.appendChild(paragraph);
+
+        return card;
+      })
+    );
     renderRatingChart();
   }
 
