@@ -1,3 +1,5 @@
+import { SignatureCanvas } from './signature.js';
+
 const ChartGlobal = typeof window !== 'undefined' ? window.Chart : null;
 
 class FormState {
@@ -48,152 +50,6 @@ class FormState {
     return JSON.stringify(this.data, null, 2);
   }
 }
-
-class SignaturePad {
-  constructor(container, state, onChange) {
-    this.container = container;
-    this.canvas = container.querySelector('canvas');
-    this.status = container.querySelector('[data-signature-status]');
-    this.clearButton = container.querySelector('[data-action="clear-signature"]');
-    this.field = container.dataset.field || `signature${Math.random().toString(16).slice(2)}`;
-    this.state = state;
-    this.onChange = onChange;
-    this.ctx = this.canvas.getContext('2d');
-    this.isDrawing = false;
-    this.isDirty = false;
-    this.hasStroke = false;
-    this.lastPoint = null;
-    this.configureContext();
-    this.bind();
-    this.resize();
-    window.addEventListener('resize', () => this.resize());
-    this.updateStatus('Awaiting signature');
-  }
-
-  configureContext() {
-    this.ctx.lineJoin = 'round';
-    this.ctx.lineCap = 'round';
-    this.ctx.lineWidth = 2.4;
-    this.ctx.strokeStyle = '#111';
-    this.ctx.fillStyle = '#111';
-  }
-
-  bind() {
-    this.canvas.addEventListener('pointerdown', (event) => {
-      event.preventDefault();
-      this.canvas.setPointerCapture(event.pointerId);
-      this.isDrawing = true;
-      this.hasStroke = false;
-      this.lastPoint = this.getPoint(event);
-      this.ctx.beginPath();
-      this.ctx.moveTo(this.lastPoint.x, this.lastPoint.y);
-    });
-
-    this.canvas.addEventListener('pointermove', (event) => {
-      if (!this.isDrawing) return;
-      event.preventDefault();
-      const point = this.getPoint(event);
-      this.ctx.lineTo(point.x, point.y);
-      this.ctx.stroke();
-      this.lastPoint = point;
-      this.hasStroke = true;
-      this.isDirty = true;
-      this.updateState();
-    });
-
-    const finish = (event, skipDot = false) => {
-      if (!this.isDrawing) return;
-      event.preventDefault();
-      this.isDrawing = false;
-      if (!this.hasStroke && !skipDot && this.lastPoint) {
-        this.ctx.beginPath();
-        this.ctx.arc(this.lastPoint.x, this.lastPoint.y, 1.5, 0, Math.PI * 2);
-        this.ctx.fill();
-        this.ctx.closePath();
-        this.isDirty = true;
-      } else {
-        this.ctx.closePath();
-      }
-      if (typeof event.pointerId === 'number' && this.canvas.hasPointerCapture(event.pointerId)) {
-        this.canvas.releasePointerCapture(event.pointerId);
-      }
-      this.hasStroke = false;
-      this.updateState();
-    };
-
-    this.canvas.addEventListener('pointerup', (event) => finish(event));
-    this.canvas.addEventListener('pointercancel', (event) => finish(event, true));
-    this.canvas.addEventListener('pointerleave', (event) => finish(event, true));
-
-    if (this.clearButton) {
-      this.clearButton.addEventListener('click', () => this.clear());
-    }
-  }
-
-  resize() {
-    const ratio = window.devicePixelRatio || 1;
-    const rect = this.canvas.getBoundingClientRect();
-    const targetWidth = Math.max(rect.width, 320);
-    const targetHeight = Math.max(rect.height, 120);
-    const image = this.isDirty ? this.canvas.toDataURL('image/png') : null;
-    this.canvas.width = targetWidth * ratio;
-    this.canvas.height = targetHeight * ratio;
-    this.canvas.style.width = `${targetWidth}px`;
-    this.canvas.style.height = `${targetHeight}px`;
-    this.ctx.setTransform(1, 0, 0, 1, 0, 0);
-    this.ctx.scale(ratio, ratio);
-    this.configureContext();
-    if (image) {
-      const img = new Image();
-      img.onload = () => this.ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
-      img.src = image;
-    }
-  }
-
-  clear() {
-    this.ctx.save();
-    this.ctx.setTransform(1, 0, 0, 1, 0, 0);
-    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    this.ctx.restore();
-    this.configureContext();
-    this.isDirty = false;
-    this.isDrawing = false;
-    this.hasStroke = false;
-    this.state.setValue(this.field, null);
-    this.updateState();
-    this.updateStatus('Signature cleared');
-  }
-
-  getPoint(event) {
-    const rect = this.canvas.getBoundingClientRect();
-    return {
-      x: event.clientX - rect.left,
-      y: event.clientY - rect.top,
-    };
-  }
-
-  updateState() {
-    if (!this.state) return;
-    if (this.isDirty) {
-      const imageData = this.canvas.toDataURL('image/png');
-      this.state.setValue(this.field, imageData);
-      this.updateStatus('Signature captured');
-    } else {
-      this.state.setValue(this.field, null);
-      this.updateStatus('Awaiting signature');
-    }
-    if (typeof this.onChange === 'function') {
-      this.onChange();
-    }
-  }
-
-  updateStatus(message) {
-    if (this.status) {
-      this.status.textContent = message;
-    }
-  }
-}
-
 
 function initForm() {
   const forms = Array.from(document.querySelectorAll('.form-page'));
@@ -469,7 +325,7 @@ function initForm() {
   };
 
   document.querySelectorAll('[data-signature]').forEach((element) => {
-    const pad = new SignaturePad(element, state, signatureChange);
+    const pad = new SignatureCanvas(element, state, signatureChange);
     signaturePads.push(pad);
   });
 
