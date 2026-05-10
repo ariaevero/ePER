@@ -702,10 +702,24 @@
               <div class="signature-block" data-signature data-field="reportingSignature">
                 <header>Signature of Reporting Officer</header>
                 <canvas width="520" height="160"></canvas>
-                <div class="signature-actions">
-                  <button type="button" class="secondary" data-action="clear-signature">Clear</button>
-                  <span class="signature-status" data-signature-status>Awaiting signature</span>
+                <div class="signature-toolbar">
+                  <div class="signature-colors" role="group" aria-label="Signature ink color">
+                    <button type="button" class="signature-color is-active" data-signature-color="#111111" aria-pressed="true">Black</button>
+                    <button type="button" class="signature-color" data-signature-color="#0b3d91" aria-pressed="false">Blue</button>
+                    <button type="button" class="signature-color" data-signature-color="#147d2b" aria-pressed="false">Green</button>
+                    <button type="button" class="signature-color" data-signature-color="#b21f1f" aria-pressed="false">Red</button>
+                  </div>
+                  <div class="signature-actions">
+                    <button type="button" class="secondary" data-action="clear-signature">Clear</button>
+                    <button type="button" class="secondary" data-action="reset-signature">Reset</button>
+                    <button type="button" class="secondary" data-action="export-signature">Copy data URL</button>
+                    <span class="signature-status" data-signature-status>Awaiting signature</span>
+                  </div>
                 </div>
+                <label class="signature-data">
+                  Signature data URL
+                  <textarea rows="2" readonly data-signature-output></textarea>
+                </label>
               </div>
             </section>
           </div>
@@ -783,10 +797,24 @@
                   <label>Signature of Officer</label>
                   <div class="signature-block" data-signature data-field="officerSignature">
                     <canvas width="320" height="140"></canvas>
-                    <div class="signature-actions">
-                      <button type="button" class="secondary" data-action="clear-signature">Clear</button>
-                      <span class="signature-status" data-signature-status>Awaiting signature</span>
+                    <div class="signature-toolbar">
+                      <div class="signature-colors" role="group" aria-label="Signature ink color">
+                        <button type="button" class="signature-color is-active" data-signature-color="#111111" aria-pressed="true">Black</button>
+                        <button type="button" class="signature-color" data-signature-color="#0b3d91" aria-pressed="false">Blue</button>
+                        <button type="button" class="signature-color" data-signature-color="#147d2b" aria-pressed="false">Green</button>
+                        <button type="button" class="signature-color" data-signature-color="#b21f1f" aria-pressed="false">Red</button>
+                      </div>
+                      <div class="signature-actions">
+                        <button type="button" class="secondary" data-action="clear-signature">Clear</button>
+                        <button type="button" class="secondary" data-action="reset-signature">Reset</button>
+                        <button type="button" class="secondary" data-action="export-signature">Copy data URL</button>
+                        <span class="signature-status" data-signature-status>Awaiting signature</span>
+                      </div>
                     </div>
+                    <label class="signature-data">
+                      Signature data URL
+                      <textarea rows="2" readonly data-signature-output></textarea>
+                    </label>
                   </div>
                 </div>
               </div>
@@ -876,10 +904,24 @@
               <div class="signature-block" data-signature data-field="nhqSignature">
                 <header>Naval Headquarters Signature</header>
                 <canvas width="560" height="160"></canvas>
-                <div class="signature-actions">
-                  <button type="button" class="secondary" data-action="clear-signature">Clear</button>
-                  <span class="signature-status" data-signature-status>Awaiting signature</span>
+                <div class="signature-toolbar">
+                  <div class="signature-colors" role="group" aria-label="Signature ink color">
+                    <button type="button" class="signature-color is-active" data-signature-color="#111111" aria-pressed="true">Black</button>
+                    <button type="button" class="signature-color" data-signature-color="#0b3d91" aria-pressed="false">Blue</button>
+                    <button type="button" class="signature-color" data-signature-color="#147d2b" aria-pressed="false">Green</button>
+                    <button type="button" class="signature-color" data-signature-color="#b21f1f" aria-pressed="false">Red</button>
+                  </div>
+                  <div class="signature-actions">
+                    <button type="button" class="secondary" data-action="clear-signature">Clear</button>
+                    <button type="button" class="secondary" data-action="reset-signature">Reset</button>
+                    <button type="button" class="secondary" data-action="export-signature">Copy data URL</button>
+                    <span class="signature-status" data-signature-status>Awaiting signature</span>
+                  </div>
                 </div>
+                <label class="signature-data">
+                  Signature data URL
+                  <textarea rows="2" readonly data-signature-output></textarea>
+                </label>
               </div>
             </section>
           </div>
